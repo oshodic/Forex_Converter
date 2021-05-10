@@ -18,7 +18,11 @@ def form_submitted():
 
   convfrom = request.args.get("convfrom")
   convto = request.args.get("convto")
+  amount = request.args.get("amount")
 
-  return render_template("conversions.html", convfrom=convfrom, convto=convto)
+  calculated_conversion = c.convert(convfrom,convto,amount)
+  print(calculated_conversion)
+
+  return render_template("conversions.html", convfrom=convfrom, convto=convto, amount=amount)
   
 
